@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<meta charset = UTF-8>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title> Cadastro de Itens</title>
+    <!-- IMPORTAÃ‡Ã•ES DO MATERIALIZER -->
+    <!-- SITE: https://materializecss.com/getting-started.html -->
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="style/styleCss.css"/>
+</head>
+<body>
+<header>
+    <nav class="nav-wrapper blue">
+        <div class="nav-wrapper blue">
+            <a href="#" class="brand-logo">Cadastro de Itens</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/" class="grey lighten-3 waves-light btn" style="color: #2196f3"><i class="material-icons left" style="color: #2196f3;">add_circle_outline</i>Retornar ao menu</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+  <table class="container">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Itens à levar</th>
+                <th>Deletar</th>
+            </tr>
+        </thead>
+        <tbody>
+    <tr th:each="collaborator : ${collaborators}">
+            <td><a th:href="${(#mvc.url('EC#detailsCollaborator').arg(0, collaborator.code)).build()}"><span th:text="${collaborator.name}"></span></a></td>
+            <td><span th:text="${collaborator.cpf}"></span></td>
+            <td><span th:text="${collaborator.}"></span></td>
+            <td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('EC#deleteCollaborator').arg(0, collaborator.code)).build()}"><i class="material-icons left">delete</i></a></td>
+        </tr>
+        </tbody>
+
+    </table>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="mateialize/js/materialize.min.js"></script>
+</body>
+</html>
