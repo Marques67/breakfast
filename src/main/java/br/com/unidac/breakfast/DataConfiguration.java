@@ -1,4 +1,4 @@
-package brcom.unidac.breakfast.br.com.unicad.breakfast;
+package br.com.unidac.breakfast;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

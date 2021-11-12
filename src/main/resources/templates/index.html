@@ -17,10 +17,10 @@
     <link rel="stylesheet" href="style/styleCss.css"/>
 </head>
 <body>
-<header>
+<header style="text-align:center">
     <nav class="nav-wrapper blue">
-        <div class="nav-wrapper blue" style="text-align:center">
-            <a> <font face = "Amasis MT Pro" href="#" class="brand-logo">Lista de Café da manhã da Unidac </font></a>
+        <div class="nav-wrapper blue">
+            <a> <font face = "Amasis MT Pro" href="#" class="brand-logo" >Café da manhã da Unidac </font></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                <li><a href="/registerItem" class="grey lighten-3 waves-light btn" style="color: #2196f3"><i class="material-icons left" style="color: #2196f3;">add_circle_outline</i>Registrar Item</a></li>
             </ul>
@@ -37,16 +37,6 @@
     </div>
 </div>
 -->
-<div class="container collaborator">
-    <form method="post" action="/save">
-    <h5>Cadastro de Itens a serem levados para o café da manhã pelos colaboradores</h5>
-        Nome: <input type="text" value="" name="nameCollaborator" placeholder="Nome"/>
-        CPF: <input type="text" value="" name="cpf" placeholder="123456789" class="validate"/>
-        Itens à levar: <input type="text" value="" name="items" placeholder="ex: Pão, ovos, manteiga" class="validate"/>
-        
-        <button class="blue waves-light btn" type="submit" style="color: #eeeeee;">Cadastrar item</button>
-    </form> 
-</div>
   <table class="container">
         <thead>
             <tr>
@@ -57,10 +47,10 @@
         </thead>
         <tbody>
     <tr th:each="collaborator : ${collaborators}">
-            <td><a th:href="${(#mvc.url('EC#detailsCollaborator').arg(0, collaborator.code)).build()}"><span th:text="${collaborator.name}"></span></a></td>
-            <td><span th:text="${collaborator.local}"></span></td>
-            <td><span th:text="${collaborator.date}"></span></td>
-            <td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('EC#deleteCollaborator').arg(0, collaborator.code)).build()}"><i class="material-icons left">delete</i></a></td>
+            <td><a th:href="${(#mvc.url('EC#registerItem').arg(0, collaborator.code)).build()}"><span th:text="${collaborator.name}"></span></a></td>
+            <td><span th:text="${collaborator.cpf}"></span></td>
+            <td><span th:text="${collaborator.description}"></span></td>
+            <!-- <td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('EC#deleteCollaborator').arg(0, collaborator.code)).build()}"><i class="material-icons left">delete</i></a></td>-->
         </tr>
         </tbody>
     </table>

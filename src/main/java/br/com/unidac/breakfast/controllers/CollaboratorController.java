@@ -1,14 +1,14 @@
 package br.com.unidac.breakfast.controllers;
 
-import java.util.Optional;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.unidac.breakfast.models.Collaborator;
 import br.com.unidac.breakfast.repositories.CollaboratorRepository;
@@ -33,14 +33,20 @@ public class CollaboratorController {
     }
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public Optional<Collaborator> save(@Valid Collaborator collaborator) {
-		Optional<Collaborator> coll = Optional.ofNullable(cr.findByCpf(collaborator.getCpf()));
-		if (coll.isPresent()) {
-			return Optional.ofNullable(null);
-		}
+	public String save(@Valid Collaborator collaborator, BindingResult result, RedirectAttributes attributes) {
+		//Optional<Collaborator> coll = Optional.ofNullable(cr.findByCpf(collaborator.getCpf()));
+		//if (coll.isPresent()) {
+		//	return "redirect:/";
+		//}
+		
+		if (result.hasErrors()) {
+            attributes.addFlashAttribute("message", "Verifique os campos!");
+            return "redirect:/";
+        }
 		
 		cr.save(collaborator);
-		return Optional.empty();
+		attributes.addFlashAttribute("message", "Cadastrado com sucesso!");
+		return "redirect:/registerItem";
 	}
 	
 	@RequestMapping("/deleteCollaborator")

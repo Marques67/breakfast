@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import br.com.unidac.breakfast.models.Collaborator;
 
 @Repository
-public interface CollaboratorRepository extends CrudRepository<Collaborator, Long> {
+public interface CollaboratorRepository extends CrudRepository<Collaborator, String> {
 	
 	Collaborator findByCpf(Integer cpf);
 

@@ -1,12 +1,15 @@
 package br.com.unidac.breakfast.models;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Collaborator {
-	
+public class Collaborator implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@NotBlank
 	private String name;
 	
@@ -15,8 +18,8 @@ public class Collaborator {
 	private Integer cpf;
 	
 	@NotBlank
-	private Items descriptionItems;
-	
+	private Items description;
+		
 	public String getName() {
 		return name;
 	}
@@ -33,11 +36,11 @@ public class Collaborator {
 		this.cpf = cpf;
 	}
 
-	public Items getDescriptionItems() {
-		return descriptionItems;
+	public Items getDescription() {
+		return description;
 	}
 
-	public void setDescriptionItems(Items descriptionItems) {
-		this.descriptionItems = descriptionItems;
+	public void setDescription(Items description) {
+		this.description = description;
 	}
 }
