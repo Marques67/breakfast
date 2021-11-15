@@ -30,12 +30,13 @@
 
 <th:block th:include="validationMessage"></th:block>
 <div class="container registerItem">
-    <form class="container" action="/save" method="post"> <!-- action="/save"-->
+    <form class="container" method="post"> <!-- action="/save"-->
+    <div class="row">
     <h5 style="text-align:center"> Cadastro de Itens para o café da manhã: </h5>
-        Nome do colaborador: <input type="text" value="" name="Name" placeholder="Nome"/>
-        CPF: <input type="number" value="" name="cpf" placeholder="123456789" class="validate"/>
-        Itens à levar: <input type="text" value="" name="description" placeholder="ex: Pão, ovos, manteiga" class="validate"/>
-        
+        Nome do colaborador: <input type="text" value="" name="name" placeholder="Nome"/>
+        CPF: <input type="number" value="" name="cpf" placeholder="11122233344" class="validate"/>
+        Itens à levar: <input type="text" value="" name="description" placeholder="ex: Pão, ovos, manteiga" class="validate"/>        
+    </div>    
         <button class="blue waves-light btn" type="submit" style="color: #eeeeee;">Cadastrar item</button>
     </form> 
 </div>

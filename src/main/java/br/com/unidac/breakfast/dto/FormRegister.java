@@ -1,15 +1,10 @@
-package br.com.unidac.breakfast.models;
-
-import java.io.Serializable;
+package br.com.unidac.breakfast.dto;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
-@Entity
-public class Collaborator implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class FormRegister {
 
 	@NotBlank
 	private String name;
@@ -20,7 +15,7 @@ public class Collaborator implements Serializable {
 	
 	@Column(nullable = false, unique = true)
 	private String description;
-		
+
 	public String getName() {
 		return name;
 	}

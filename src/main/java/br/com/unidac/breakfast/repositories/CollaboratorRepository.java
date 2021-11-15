@@ -9,5 +9,6 @@ import br.com.unidac.breakfast.models.Collaborator;
 public interface CollaboratorRepository extends CrudRepository<Collaborator, String> {
 	
 	Collaborator findByCpf(Integer cpf);
-
+	
+	String findByDescription(String description);
 }

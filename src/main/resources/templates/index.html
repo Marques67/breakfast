@@ -28,15 +28,6 @@
     </nav>
 </header>
 
-<!--  <div th:each="registerItem : ${registerItem}" class="container register">
-    <h5>Dados do cliente</h5>
-    <div class="row">
-        <p>Name: <span th:text="${collaborator.name}"></span></p>
-        <p>CPF: <span th:text="${collaborator.cpf}"></span></p>
-        <p>Passwor d: <span th:text="${collaborator.description}"></span></p>
-    </div>
-</div>
--->
   <table class="container">
         <thead>
             <tr>
@@ -47,10 +38,10 @@
         </thead>
         <tbody>
     <tr th:each="collaborator : ${collaborators}">
-            <td><a th:href="${(#mvc.url('EC#registerItem').arg(0, collaborator.code)).build()}"><span th:text="${collaborator.name}"></span></a></td>
+            <td><span th:text="${collaborator.name}"></span></td>
             <td><span th:text="${collaborator.cpf}"></span></td>
             <td><span th:text="${collaborator.description}"></span></td>
-            <!-- <td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('EC#deleteCollaborator').arg(0, collaborator.code)).build()}"><i class="material-icons left">delete</i></a></td>-->
+            <td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('CC#deleteCollaborator').arg(0, collaborator.cpf)).build()}"><i class="material-icons left">delete</i></a></td>
         </tr>
         </tbody>
     </table>
