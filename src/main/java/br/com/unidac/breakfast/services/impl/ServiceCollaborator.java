@@ -28,20 +28,10 @@ public class ServiceCollaborator implements IServiceCollaborator {
 	     mv.addObject("collaborators", collaborators);
 	     return mv;
 	}
-	
-	// return repository.findById(id)
-	//    .orElseThrow(() -> new EntityNotFoundException(id));
-	
+
 	@Override
 	public String save(FormRegister form, RedirectAttributes attributes) {
-		
-		
-//		Optional<Coll> register = cr.findByCpf(form.getCpf());
-//		if (register.isPresent()) {
-//			attributes.addFlashAttribute("message", "Cpf já cadastrado!");
-//			return "redirect:/";
-//		}	
-		
+				
 		Collaborator collaborator = new Collaborator();
 		collaborator.setCpf(form.getCpf());
 		collaborator.setName(form.getName());
